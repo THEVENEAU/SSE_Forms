@@ -3,6 +3,7 @@ import Components from 'unplugin-vue-components/vite'
 import Vue from '@vitejs/plugin-vue'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import ViteFonts from 'unplugin-fonts/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // Utilities
 import { defineConfig } from 'vite'
@@ -16,6 +17,34 @@ export default defineConfig({
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: process.env.NODE_ENV === 'development'
+      },
+      manifest: {
+        name: 'SSE Forms',
+        short_name: 'SSE Forms',
+        description: 'Forms links for SSE',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'web-app-manifest-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'web-app-manifest-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
+      workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
+      }
+    }),
     Components(),
     ViteFonts({
       google: {
