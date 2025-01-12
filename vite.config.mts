@@ -11,6 +11,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: 'SSE_Forms',
   plugins: [
     Vue({
       template: { transformAssetUrls },
