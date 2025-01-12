@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/SSE_Forms/sw.js', { scope: '/SSE_Forms/' })})}
