@@ -10,6 +10,7 @@ declare module 'vue' {
     AppBar: typeof import('./src/components/appBar.vue')['default']
     FormIframe: typeof import('./src/components/formIframe.vue')['default']
     FormsList: typeof import('./src/components/formsList.vue')['default']
+    InstallPrompt: typeof import('./src/components/installPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
