@@ -30,7 +30,7 @@ const closeForm = () => {
         <template v-slot:prepend>
           <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
-        <v-app-bar-title>SSE Forms</v-app-bar-title>
+        <v-app-bar-title>SSE Forms {{formStore.selectedForm ? `- ${formStore.selectedForm.name}` : ''}}</v-app-bar-title>
       </v-app-bar>
       <v-navigation-drawer
         v-model="drawer"
