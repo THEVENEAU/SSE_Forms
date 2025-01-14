@@ -23,7 +23,8 @@ const closeForm = () => {
   <div style="z-index: 9999;">
     <div v-if="$vuetify.display.mdAndUp">
       <v-app-bar
-        color="#088549"
+        color="var(--primary-color)"
+        style="color: var(--on-primary-color)"
         :elevation="2"
       >
         <template v-slot:prepend>
@@ -79,7 +80,8 @@ const closeForm = () => {
     <div v-else>
       <v-bottom-navigation
         v-model="currentRouteIndex"
-        bg-color="#088549"
+        bg-color="var(--primary-color)"
+        style="color: var(--on-primary-color)"
         mode="shift"
       >
         <v-btn

@@ -11,7 +11,8 @@ const forms = [
 </script>
 
 <template>
-  <div>
+  <div class="container">
+    <h1>Formulaires</h1>
     <forms-list :forms="forms"></forms-list>
   </div>
 </template>

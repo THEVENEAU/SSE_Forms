@@ -14,7 +14,7 @@ const routes = [
   },
   {
     path: '/about',
-    name: 'A propos',
+    name: 'À propos',
     component: AboutView,
     meta: {
       icon: 'mdi-information-variant'
