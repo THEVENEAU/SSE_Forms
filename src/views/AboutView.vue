@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import {useAppStore} from "@/stores/appStore";
+
+const appStore = useAppStore();
 const support = {
-  name: "Sébastian THEVENEAU",
-  email: "sebastian.theveneau@gmail.com"
+  email: "securite.dki.fr@dekra.com",
+  provider: "https://outlook.office.com/mail/deeplink/compose"
 }
 </script>
 
@@ -11,18 +14,18 @@ const support = {
     <v-card>
       <v-card-item prepend-icon="mdi-comment-alert-outline">
         <v-card-title>Contact Support</v-card-title>
-        <v-card-subtitle>{{ support.name }} - {{ support.email }}</v-card-subtitle>
+        <v-card-subtitle>{{ support.email }}</v-card-subtitle>
       </v-card-item>
       <v-card-text style="text-align: justify">
-        <p>Vous pouvez contacter le référent support par email pour toutes questions concernant l'application SSE Forms ou pour faire part d'erreurs (bugs) rencontrées sur l'application.</p>
+        <p>Vous pouvez contacter le(s) référent(s) support par email pour toutes questions concernant l'application SSE Forms ou pour faire part d'erreurs (bugs) rencontrées sur l'application.</p>
         <br>
-        <a :href="`mailto:${support.email}?subject=SSE%20Forms%20-%20support&body=Bonjour%20${support.name},%0A%0AJe%20vous%20contact%20concernant ...`">
+        <a :href="`${support.provider}?to=${support.email}?subject=[SSE%20Forms]%20Support`" target="_blank">
           <v-btn variant="outlined" color="var(--primary-color)">Envoyer un Email</v-btn>
         </a>
       </v-card-text>
     </v-card>
 
-    <v-card>
+    <v-card v-if="appStore.showInstall">
       <v-card-item prepend-icon="mdi-download">
         <v-card-title>Installation Application</v-card-title>
       </v-card-item>

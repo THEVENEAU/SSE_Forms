@@ -63,7 +63,7 @@ const closeForm = () => {
               <v-list-item-title v-text="route.name"></v-list-item-title>
             </v-list-item>
             <v-list-item
-              v-if="appStore.installPromptEvent"
+              v-if="appStore.showInstall"
               @click="appStore.installApp()"
               rounded="xl"
             >
@@ -101,7 +101,7 @@ const closeForm = () => {
           <span>{{ route.name }}</span>
         </v-btn>
         <v-btn
-          v-if="!formStore.selectedForm && appStore.installPromptEvent"
+          v-if="appStore.showInstall"
           @click="appStore.installApp()"
         >
           <v-icon>mdi-download</v-icon>

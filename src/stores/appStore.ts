@@ -1,10 +1,14 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import {computed, ref} from "vue";
 import type BeforeInstallPromptEvent from "@/interfaces/BeforeInstallPromptEvent";
+import {useFormStore} from "@/stores/formStore";
 
 export const useAppStore = defineStore('app', () => {
   const hideInstallPrompt = ref(false);
   const installPromptEvent = ref<BeforeInstallPromptEvent | null>(null);
+
+  const isStandalone = computed(() => window.matchMedia('(display-mode: standalone)').matches)
+  const showInstall = computed(() => !useFormStore().selectedForm && !isStandalone.value && installPromptEvent.value != null)
 
   const installApp = async () => {
     if (installPromptEvent.value) {
@@ -16,7 +20,7 @@ export const useAppStore = defineStore('app', () => {
     }
   };
 
-  return { hideInstallPrompt, installPromptEvent, installApp };
+  return { hideInstallPrompt, installPromptEvent, isStandalone, showInstall, installApp };
 }, {
   persist: true
 });

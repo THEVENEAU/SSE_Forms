@@ -4,7 +4,7 @@ import {useFormStore} from "@/stores/formStore";
 import {ref} from "vue";
 
 const formStore = useFormStore();
-const useIframe = ref(true)
+const useIframe = ref(false)
 
 const props = defineProps<{
   forms: FormInterface[];
@@ -30,6 +30,7 @@ const openForm = (form: FormInterface) => {
           v-model="useIframe"
           :label="`${useIframe ? 'Ouvrir dans l\'application' : 'Ouvrir dans le navigateur'}`"
           color="success"
+          disabled
           hide-details
         ></v-switch>
       </template>
@@ -48,7 +49,6 @@ const openForm = (form: FormInterface) => {
         <v-avatar :text="form.shortname"></v-avatar>
       </template>
       <v-list-item-title v-text="form.name"></v-list-item-title>
-      <v-list-item-subtitle>{{ form.url }}</v-list-item-subtitle>
     </v-list-item>
   </v-list>
 </template>
