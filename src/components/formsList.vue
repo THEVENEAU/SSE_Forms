@@ -70,6 +70,7 @@ const openForm = (form: FormInterface) => {
               icon="mdi-information-variant-circle-outline"
               variant="plain"
               color="primary"
+              v-tooltip="`Informations ${form.shortname}`"
             />
           </template>
 

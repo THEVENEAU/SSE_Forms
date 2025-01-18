@@ -1,5 +1,14 @@
 @import "containement.css";
 
+:root {
+    --primary-color: rgb(var(--v-theme-primary));
+    --background-color: rgb(var(--v-theme-background));
+    --error-color: rgb(var(--v-theme-error));
+    --info-color: rgb(var(--v-theme-info));
+    --success-color: rgb(var(--v-theme-success));
+    --warning-color: rgb(var(--v-theme-warning));
+}
+
 h1 {
-    color: rgb(var(--v-theme-primary));
+    color: var(--primary-color);
 }

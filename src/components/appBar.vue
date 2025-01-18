@@ -29,8 +29,8 @@ const closeForm = () => {
       >
         <template v-slot:prepend>
           <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+          <span @click="router.push('/')" style="cursor: pointer">SSE Forms</span>
         </template>
-        <v-app-bar-title>SSE Forms</v-app-bar-title>
         <template v-slot:append>
           <theme-picker />
           <v-avatar image="/favicon.svg" rounded="0" />
@@ -111,7 +111,9 @@ const closeForm = () => {
           <v-icon>mdi-download</v-icon>
           <span>Installer</span>
         </v-btn>
-        <theme-picker style="position: fixed; bottom: 5px; right: 5px;" />
+        <theme-picker>
+          <template v-slot:text><span>Thème</span></template>
+        </theme-picker>
       </v-bottom-navigation>
     </div>
   </div>

@@ -24,7 +24,7 @@ onMounted(() => {
     <v-main>
       <install-prompt />
       <form-iframe v-if="formStore.selectedForm" class="iframe"/>
-      <RouterView v-else />
+        <RouterView v-else />
     </v-main>
   </v-app>
 </template>

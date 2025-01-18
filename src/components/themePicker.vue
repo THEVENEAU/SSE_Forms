@@ -24,7 +24,10 @@ const icon = computed(() =>
 
 
 <template>
-  <v-btn @click="toggleTheme" :icon="icon" />
+  <v-btn @click="toggleTheme">
+    <v-icon>{{ icon }}</v-icon>
+    <slot name="text"></slot>
+  </v-btn>
 </template>
 
 <style scoped>
