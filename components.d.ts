@@ -13,5 +13,6 @@ declare module 'vue' {
     InstallPrompt: typeof import('./src/components/installPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemePicker: typeof import('./src/components/themePicker.vue')['default']
   }
 }

@@ -1,10 +1,5 @@
 @import "containement.css";
 
-:root {
-    --primary-color: #088549;
-    --on-primary-color: #ffffff;
-}
-
 h1 {
-    color: var(--primary-color);
+    color: rgb(var(--v-theme-primary));
 }

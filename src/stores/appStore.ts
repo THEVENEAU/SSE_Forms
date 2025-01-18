@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import {computed, ref} from "vue";
 import type BeforeInstallPromptEvent from "@/interfaces/BeforeInstallPromptEvent";
 import {useFormStore} from "@/stores/formStore";
+import {useTheme} from "vuetify";
 
 export const useAppStore = defineStore('app', () => {
   const hideInstallPrompt = ref(false);

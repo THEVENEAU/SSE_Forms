@@ -3,8 +3,7 @@ import {useAppStore} from "@/stores/appStore";
 
 const appStore = useAppStore();
 const support = {
-  email: "securite.dki.fr@dekra.com",
-  provider: "https://outlook.office.com/mail/deeplink/compose"
+  email: "securite.dki.fr@dekra.com"
 }
 </script>
 
@@ -18,10 +17,6 @@ const support = {
       </v-card-item>
       <v-card-text style="text-align: justify">
         <p>Vous pouvez contacter le(s) référent(s) support par email pour toutes questions concernant l'application SSE Forms ou pour faire part d'erreurs (bugs) rencontrées sur l'application.</p>
-        <br>
-        <a :href="`${support.provider}?to=${support.email}?subject=[SSE%20Forms]%20Support`" target="_blank">
-          <v-btn variant="outlined" color="var(--primary-color)">Envoyer un Email</v-btn>
-        </a>
       </v-card-text>
     </v-card>
 

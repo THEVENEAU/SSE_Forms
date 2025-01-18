@@ -3,6 +3,7 @@ import { useRouter } from "vue-router";
 import {computed, ref} from "vue";
 import {useFormStore} from "@/stores/formStore";
 import {useAppStore} from "@/stores/appStore";
+import ThemePicker from "@/components/themePicker.vue";
 
 const formStore = useFormStore()
 const appStore = useAppStore()
@@ -23,14 +24,17 @@ const closeForm = () => {
   <div style="z-index: 9999;">
     <div v-if="$vuetify.display.mdAndUp">
       <v-app-bar
-        color="var(--primary-color)"
-        style="color: var(--on-primary-color)"
+        color="primary"
         :elevation="2"
       >
         <template v-slot:prepend>
           <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
-        <v-app-bar-title>SSE Forms {{formStore.selectedForm ? `- ${formStore.selectedForm.name}` : ''}}</v-app-bar-title>
+        <v-app-bar-title>SSE Forms</v-app-bar-title>
+        <template v-slot:append>
+          <theme-picker />
+          <v-avatar image="/favicon.svg" rounded="0" />
+        </template>
       </v-app-bar>
       <v-navigation-drawer
         v-model="drawer"
@@ -80,8 +84,7 @@ const closeForm = () => {
     <div v-else>
       <v-bottom-navigation
         v-model="currentRouteIndex"
-        bg-color="var(--primary-color)"
-        style="color: var(--on-primary-color)"
+        bg-color="primary"
         mode="shift"
       >
         <v-btn
@@ -97,7 +100,8 @@ const closeForm = () => {
           :key="route.name"
           @click="router.push(route.path)"
         >
-          <v-icon>{{ route.meta.icon }}</v-icon>
+          <v-avatar v-if="route.name === 'Accueil'" image="/favicon.svg" rounded="0" size="x-small" />
+          <v-icon v-else>{{ route.meta.icon }}</v-icon>
           <span>{{ route.name }}</span>
         </v-btn>
         <v-btn
@@ -107,6 +111,7 @@ const closeForm = () => {
           <v-icon>mdi-download</v-icon>
           <span>Installer</span>
         </v-btn>
+        <theme-picker style="position: fixed; bottom: 5px; right: 5px;" />
       </v-bottom-navigation>
     </div>
   </div>
